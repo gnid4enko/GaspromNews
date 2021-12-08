@@ -107,9 +107,9 @@ if (nrow(news_urls_1)>0) {
     start_pos <- max(match(trim(type), trim(text)), match(trim(type_add), trim(text)))
     text <- text[(start_pos+1):length(text)]
     text <- paste(text, collapse = ' ')
-    text <- substring(text, 1, min(str_locate(pattern="©", text), str_locate(
-      pattern="Êîíòàêòíàÿ èíôîðìàöèÿ", text), str_locate(
-        pattern="Óïðàâëåíèå èíôîðìàöèè", text), na.rm=T)-1)
+    text <- substring(text, 1, min(str_locate(pattern="Â©", text), str_locate(
+      pattern="ÐšÐ¾Ð½Ñ‚Ð°ÐºÑ‚Ð½Ð°Ñ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ", text), str_locate(
+        pattern="Ð£Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸", text), na.rm=T)-1)
     GSPRM_NWS$date[j] <- dt
     GSPRM_NWS$title[j] <- zag
     GSPRM_NWS$type[j] <- paste(type, collapse=" / ")
