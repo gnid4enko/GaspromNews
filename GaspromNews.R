@@ -119,6 +119,11 @@ if (nrow(news_urls_1)>0) {
     j = j+1
   }
   
+  ## CHANGE DATE FORMAT
+  date2 <- paste0(GSPRM_NWS$y,"-",GSPRM_NWS$mnth_no,"-",trim(substr(GSPRM_NWS$date,1,2))," ",
+                  substr(GSPRM_NWS$date, nchar(GSPRM_NWS$date)-5+1, nchar(GSPRM_NWS$date)),":00")
+  GSPRM_NWS$date <- as.POSIXct(date2, format="%Y-%m-%d %H:%M:%S",tz="Europe/Moscow")
+  
   ## ADD DOWNLOADED NEWS TO THE PREVIOUS RESULT
   if (file.exists(paste0(PATH, "GSPRM_NWS.csv"))) {
     GSPRM_NWS_0 <- read.csv(paste0(PATH, "GSPRM_NWS.csv"))
